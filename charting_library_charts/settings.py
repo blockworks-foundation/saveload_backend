@@ -1,6 +1,7 @@
 # Django settings for charting_library_charts project.
 
 import os
+import pathlib
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
@@ -13,6 +14,8 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+base_path = pathlib.Path(os.path.dirname(os.path.abspath(__file__))).parent
+
 DATABASES = {
 	'default': {
 		'ENGINE': 'ssl_backend',
@@ -21,6 +24,14 @@ DATABASES = {
 		'PASSWORD': os.getenv('DB_PASSWORD', 'postgres'),
 		'HOST': os.getenv('DB_HOST', 'localhost'),
 		'PORT': int(os.getenv('DB_PORT', '5432')),
+
+
+		'OPTIONS': {
+            'sslmode': 'verify-ca',
+            'sslrootcert': base_path / "ssl" / "ca.pem",
+            'sslcert': base_path / "ssl" / "client.pem",
+            'sslkey': base_path / "ssl" / "client-key.pem",
+        },
 	}
 }
 
