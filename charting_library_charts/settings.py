@@ -116,7 +116,11 @@ MIDDLEWARE_CLASSES = (
 MIDDLEWARE = (
 	'django_prometheus.middleware.PrometheusBeforeMiddleware',
 	'django_prometheus.middleware.PrometheusAfterMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+	'django.middleware.common.CommonMiddleware',
 )
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'charting_library_charts.urls'
 
@@ -142,6 +146,7 @@ INSTALLED_APPS = (
 	# 'django.contrib.admindocs',
 	'model',
 	'django_prometheus',
+    'corsheaders',
 )
 
 # A sample logging configuration. The only tangible logging
