@@ -5,3 +5,5 @@ The below are useful for checking migrations
 `python manage.py sqlmigrate model 0001` (model and 0001 from the above)
 
 vscode and heroku can handle multiline env vars - using \n in terminal though breaks the ssl files
+
+heroku config:set DISABLE_COLLECTSTATIC=1 --app tv-backend-v4
