@@ -114,13 +114,14 @@ MIDDLEWARE_CLASSES = (
 )
 
 MIDDLEWARE = (
-	'django_prometheus.middleware.PrometheusBeforeMiddleware',
-	'django_prometheus.middleware.PrometheusAfterMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 	'django.middleware.common.CommonMiddleware',
+	'django_prometheus.middleware.PrometheusBeforeMiddleware',
+	'django_prometheus.middleware.PrometheusAfterMiddleware',
 )
 
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'charting_library_charts.urls'
 
